@@ -1,6 +1,7 @@
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 import tensorflow as tf
+from .models import Tweet
 
 
 loaded_model = tf.keras.models.load_model("D:\\Programming\\Python\\Django\\offensive_tweets\\static\\ml_models\\Cyber_Disaster")
@@ -14,10 +15,19 @@ def predict_tweet(request):
     predictions = loaded_model.predict([input_tweet])
     predictions = predictions[0][0]
     result = "Not Cyber Bullying..."
+
     if predictions > 0.5:
         result = "Is Cyber Bullying..."
     response = {
         "status": "OK",
         "prediction": result
     }
+
+    tweet_data = {
+        "tweet": input_tweet,
+        "predictions": result
+    }
+
+    Tweet.objects.create(**tweet_data)
+
     return Response(status=200, data=response)

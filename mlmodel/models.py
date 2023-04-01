@@ -1,3 +1,6 @@
 from django.db import models
 
-# Create your models here.
+
+class Tweet(models.Model):
+    tweet = models.TextField()
+    predictions = models.TextField()
