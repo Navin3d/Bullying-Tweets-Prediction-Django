@@ -1,0 +1,40 @@
+{
+	"info": {
+		"_postman_id": "be044743-2c03-492e-b8a6-5c4b0d2b3a1c",
+		"name": "Cyberbullying",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "17195439"
+	},
+	"item": [
+		{
+			"name": "Prectict",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"tweet\": \"you\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/ml/predict/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"ml",
+						"predict",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
